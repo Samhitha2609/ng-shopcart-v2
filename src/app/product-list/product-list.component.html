@@ -1,11 +1,29 @@
 <h2>Products</h2>
 
-<div *ngFor = "let product of productsInside">
+<!-- <div *ngFor = "let product of productsInside">
   <span style="color:green; font-weight:bold"> {{product.id }}</span><br>
   <span style="color:indigo; font-weight:bold">{{product.name}}</span><br>
   <span style="color:purple; font-weight:bold">{{product.price}}</span><br>
   <span style="color:blue; font-weight:bold">{{product.description}}</span>
+</div> -->
+
+<div *ngFor="let product of productsInside">
+<h3>
+<a [title]="'product ' + product.id + ' details'">
+{{ product.id }}
+</a><br><br>
+<a [title]="product.name + ' details'">
+{{ product.name }}
+</a>
+</h3>
+<p *ngIf="product.description">
+Description: {{ product.description }}
+</p>
+<button (click)="share()">
+Share
+</button>
 </div>
+
 <!-- 
 Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
